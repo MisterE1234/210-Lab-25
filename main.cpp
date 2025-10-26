@@ -103,8 +103,10 @@ int main() {
     //Sorting the vector so that the Codes are sorted alphabetically
     for(int i = 0; i < SZ_CODES; i++){
 
-        for (int j = i + 1; j < SZ_CODES; i++){
+        for (int j = i + 1; j < SZ_CODES; j++){
+            if(vectCode[i] > vectCode[j]){
             swap(vectCode[i], vectCode[j]);
+            }
 
         }
         
@@ -145,10 +147,55 @@ int main() {
     //Inserting:
     string insert_str = "TESTCODE";
 
-    //Timing and inserting vector
+    //Timing and inserting a test string into the middle of the vector
     start = high_resolution_clock::now();
 
     vectCode.push_back(insert_str);
+
+    for(int i = vectCode.size(); i > SZ_CODES/2; i--){
+        for(int j = i - 1; i > SZ_CODES/2; i--){
+        
+            swap(vectCode[i], vectCode[j]);
+
+        }
+
+    }
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durVect = duration.count();
+
+
+
+    //Timing and inserting a test string into the middle of the list
+    auto it = listCode.begin();
+    advance(it, SZ_CODES/2);
+
+    start = high_resolution_clock::now();
+
+    listCode.insert(it, insert_str);
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durList = duration.count();
+
+
+
+    //Timing and inserting a test string into the middle of the set
+
+    start = high_resolution_clock::now();
+
+    setCode.insert(insert_str);
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durSet = duration.count();
+
+
+
+
 
     //Clearing all the operations:
     vectCode.clear();
