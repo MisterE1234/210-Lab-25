@@ -1,3 +1,7 @@
+//COMSC-210|Ethan Aylard|Lab-25
+//IDE Used: Visual Studio Code
+//This Program is to time different methods of storing information.
+
 #include <iostream>
 #include <chrono>
 using namespace std;
