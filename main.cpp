@@ -16,19 +16,28 @@ int SZ_CODES = 20000;
 
 int main() {
 
+    string tempCode;
     //Declaring the different competetors in the race:
     vector<string> strCode;
     list<string> listCode;
     set<string> setCode;
     
     //Opening the codes for the race:
-    ifstream fin("codes.txt");
+    ifstream iFile("codes.txt");
+
+    auto start = high_resolution_clock::now();
     
-    
+    for(int i = 0; i < SZ_CODES; i++){
+
+    getline(iFile, tempCode);
+    strCode.push_back(tempCode);
+    }
+
+    auto end = high_resolution_clock::now();
 
 
 
-    fin.close();
+    iFile.close();
 
     return 0;
 }
