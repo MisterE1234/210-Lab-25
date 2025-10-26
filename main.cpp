@@ -31,7 +31,7 @@ int main() {
     list<string> listCode;
     set<string> setCode;
     
-    cout << "";
+    cout << right << setw(8) << "Operation" << setw(8) << "Vector" << "List" << "Set" << endl;
     //Opening the codes for the race:
     ifstream iFile("codes.txt");
 
@@ -87,6 +87,31 @@ int main() {
 
     iFile.close();
 
+
+    cout <<  right << setw(8) << durVect << durList << durSet << endl;
+
+
+    //Clearing all the operations:
+    vectCode.clear();
+    listCode.clear();
+    setCode.clear();
+
+    //Sorting:
+
+    start = high_resolution_clock::now();
+
+    for(int i = 0; i < SZ_CODES; i++){
+        
+        for (int j = i + 1; j < SZ_CODES; i++){
+
+
+
+
+        }
+        
+
+
+    }
     return 0;
 }
 
