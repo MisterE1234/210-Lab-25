@@ -168,12 +168,12 @@ int main() {
 
 
     //Timing and inserting a test string into the middle of the list
-    auto it = listCode.begin();
-    advance(it, SZ_CODES/2);
+    auto itList = listCode.begin();
+    advance(itList, SZ_CODES/2);
 
     start = high_resolution_clock::now();
 
-    listCode.insert(it, insert_str);
+    listCode.insert(itList, insert_str);
 
     end = high_resolution_clock::now();
     duration = duration_cast<milliseconds>(end - start);
@@ -194,7 +194,53 @@ int main() {
     durSet = duration.count();
 
 
+    //Displaying the values of the inserting:
+    cout << right << setw(8) << durVect << durList << durSet << endl;
 
+
+
+    //Timing the deleting the middlish value:
+
+    //vector:
+    start = high_resolution_clock::now();
+
+    vectCode[SZ_CODES/2].clear();
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durVect = duration.count();
+
+
+    //List:
+    start = high_resolution_clock::now();
+
+    listCode.erase(itList);
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durList = duration.count();
+
+
+
+    //Set:
+    auto itSet = setCode.begin();
+    advance(itSet, SZ_CODES/2);
+
+    start = high_resolution_clock::now();
+
+    setCode.erase(itSet);
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durSet = duration.count();
+
+
+
+    //Displaying the times for the Deleting:
+    cout << right << setw(8) << durVect << durList << durSet << endl;
 
 
     //Clearing all the operations:
