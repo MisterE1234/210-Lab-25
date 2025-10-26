@@ -17,6 +17,7 @@ int SZ_CODES = 20000;
 
 int main() {
 
+    
     string tempCode;
     int durVect;
     int durList;
@@ -115,7 +116,7 @@ int main() {
 
 
 
-    //Sorting the list
+    //Sorting the list:
     start = high_resolution_clock::now();
 
     listCode.sort();
@@ -139,7 +140,16 @@ int main() {
     cout << right << setw(8) << durVect << durList << durSet << endl;
 
 
-    
+
+
+    //Inserting:
+    string insert_str = "TESTCODE";
+
+    //Timing and inserting vector
+    start = high_resolution_clock::now();
+
+    vectCode.push_back(insert_str);
+
     //Clearing all the operations:
     vectCode.clear();
     listCode.clear();
