@@ -24,8 +24,6 @@ int main() {
 
 
 
-
-
     //Declaring the different competetors in the race:
     vector<string> vectCode;
     list<string> listCode;
@@ -51,6 +49,8 @@ int main() {
     durVect = duration.count();
 
 
+
+    //Reading to the list:
     //Getting the time for the start of the timer:
     start = high_resolution_clock::now();
 
@@ -67,6 +67,8 @@ int main() {
     durList = duration.count();
 
 
+
+    //Reading to the set:
     //Getting the time for the start of the timer:
     start = high_resolution_clock::now();
 
@@ -91,27 +93,58 @@ int main() {
     cout <<  right << setw(8) << durVect << durList << durSet << endl;
 
 
-    //Clearing all the operations:
-    vectCode.clear();
-    listCode.clear();
-    setCode.clear();
+    
 
     //Sorting:
 
     start = high_resolution_clock::now();
 
+    //Sorting the vector so that the Codes are sorted alphabetically
     for(int i = 0; i < SZ_CODES; i++){
-        
+
         for (int j = i + 1; j < SZ_CODES; i++){
-
-
-
+            swap(vectCode[i], vectCode[j]);
 
         }
         
-
-
     }
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durVect = duration.count();
+
+
+
+    //Sorting the list
+    start = high_resolution_clock::now();
+
+    listCode.sort();
+
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durList = duration.count();
+
+
+
+    //Sorting the set:
+    start = high_resolution_clock::now();
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+
+    durList = duration.count();
+
+    //Displaying the times for sorting:
+
+    cout << right << setw(8) << durVect << durList << durSet << endl;
+
+
+    
+    //Clearing all the operations:
+    vectCode.clear();
+    listCode.clear();
+    setCode.clear();
+
     return 0;
 }
 
