@@ -9,6 +9,7 @@
 #include <chrono>
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 using namespace std::chrono;
 
@@ -22,6 +23,8 @@ int main() {
     int durVect;
     int durList;
     int durSet;
+    string fileArr[SZ_CODES];
+
 
 
 
@@ -35,14 +38,27 @@ int main() {
     //Opening the codes for the race:
     ifstream iFile("codes.txt");
 
+   
+
+    //Using a for loop to read the file to the vector:
+    for(int i = 0; i < SZ_CODES; i++){
+
+    getline(iFile, tempCode);
+
+    fileArr[i] = tempCode;
+    }
+
+    iFile.close();
+
     //Getting the time for the start of the timer:
     auto start = high_resolution_clock::now();
 
     //Using a for loop to read the file to the vector:
     for(int i = 0; i < SZ_CODES; i++){
 
-    getline(iFile, tempCode);
-    vectCode.push_back(tempCode);
+    vectCode.push_back(fileArr[i]);
+
+    
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     auto end = high_resolution_clock::now();
@@ -59,8 +75,7 @@ int main() {
     //Using a for loop to read the file to the list:
     for(int i = 0; i < SZ_CODES; i++){
 
-    getline(iFile, tempCode);
-    listCode.push_back(tempCode);
+    listCode.push_back(fileArr[i]);
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     end = high_resolution_clock::now();
@@ -77,8 +92,7 @@ int main() {
     //Using a for loop to read the file to the set:
     for(int i = 0; i < SZ_CODES; i++){
 
-    getline(iFile, tempCode);
-    setCode.insert(tempCode);
+    setCode.insert(fileArr[i]);
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     end = high_resolution_clock::now();
@@ -89,7 +103,7 @@ int main() {
     
 
 
-    iFile.close();
+    
 
 
     //Displaying the times for reading:
@@ -104,16 +118,7 @@ int main() {
     start = high_resolution_clock::now();
 
     //Sorting the vector so that the Codes are sorted alphabetically
-    for(int i = 0; i < SZ_CODES; i++){
-
-        for (int j = i + 1; j < SZ_CODES; j++){
-            if(vectCode[i] > vectCode[j]){
-            swap(vectCode[i], vectCode[j]);
-            }
-
-        }
-        
-    }
+    sort(vectCode.begin(), vectCode.end());
     end = high_resolution_clock::now();
     duration = duration_cast<milliseconds>(end - start);
 
@@ -138,7 +143,7 @@ int main() {
     end = high_resolution_clock::now();
     duration = duration_cast<milliseconds>(end - start);
 
-    durList = duration.count();
+    durSet = duration.count();
 
     //Displaying the times for sorting:
 
