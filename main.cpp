@@ -62,7 +62,7 @@ int main() {
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<milliseconds>(end - start);
+    auto duration = duration_cast<microseconds>(end - start);
 
     durVect = duration.count();
 
@@ -79,7 +79,7 @@ int main() {
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durList = duration.count();
 
@@ -96,7 +96,7 @@ int main() {
     }
     //Getting the time for the end of the timer and then getting the difference between the start and end:
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durSet = duration.count();
 
@@ -120,7 +120,7 @@ int main() {
     //Sorting the vector so that the Codes are sorted alphabetically
     sort(vectCode.begin(), vectCode.end());
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durVect = duration.count();
 
@@ -132,7 +132,7 @@ int main() {
     listCode.sort();
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durList = duration.count();
 
@@ -167,7 +167,7 @@ int main() {
 
     }
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durVect = duration.count();
 
@@ -175,14 +175,14 @@ int main() {
 
     //Timing and inserting a test string into the middle of the list
     start = high_resolution_clock::now();
-    
+
     auto itList = listCode.begin();
     advance(itList, SZ_CODES/2);
 
     listCode.insert(itList, insert_str);
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durList = duration.count();
 
@@ -195,7 +195,7 @@ int main() {
     setCode.insert(insert_str);
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durSet = duration.count();
 
@@ -214,7 +214,7 @@ int main() {
     vectCode.erase(vectCode.begin() + SZ_CODES/2);
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durVect = duration.count();
 
@@ -225,7 +225,7 @@ int main() {
     listCode.erase(itList);
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durList = duration.count();
 
@@ -240,7 +240,7 @@ int main() {
     setCode.erase(itSet);
 
     end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
+    duration = duration_cast<microseconds>(end - start);
 
     durSet = duration.count();
 
