@@ -156,16 +156,8 @@ int main() {
     //Timing and inserting a test string into the middle of the vector
     start = high_resolution_clock::now();
 
-    vectCode.push_back(insert_str);
+    vectCode.insert(vectCode.begin() + vectCode.size() / 2, insert_str);
 
-    for(int i = vectCode.size(); i > SZ_CODES/2; i--){
-        for(int j = i - 1; i > SZ_CODES/2; j--){
-        
-            swap(vectCode[i], vectCode[j]);
-
-        }
-
-    }
     end = high_resolution_clock::now();
     duration = duration_cast<microseconds>(end - start);
 
