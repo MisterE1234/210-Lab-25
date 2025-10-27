@@ -139,11 +139,8 @@ int main() {
 
 
     //Sorting the set:
-    start = high_resolution_clock::now();
-    end = high_resolution_clock::now();
-    duration = duration_cast<milliseconds>(end - start);
 
-    durSet = duration.count();
+    durSet = -1;
 
     //Displaying the times for sorting:
 
@@ -162,7 +159,7 @@ int main() {
     vectCode.push_back(insert_str);
 
     for(int i = vectCode.size(); i > SZ_CODES/2; i--){
-        for(int j = i - 1; i > SZ_CODES/2; i--){
+        for(int j = i - 1; i > SZ_CODES/2; j--){
         
             swap(vectCode[i], vectCode[j]);
 
@@ -177,10 +174,10 @@ int main() {
 
 
     //Timing and inserting a test string into the middle of the list
+    start = high_resolution_clock::now();
+    
     auto itList = listCode.begin();
     advance(itList, SZ_CODES/2);
-
-    start = high_resolution_clock::now();
 
     listCode.insert(itList, insert_str);
 
@@ -214,7 +211,7 @@ int main() {
     //vector:
     start = high_resolution_clock::now();
 
-    vectCode[SZ_CODES/2].clear();
+    vectCode.erase(vectCode.begin() + SZ_CODES/2);
 
     end = high_resolution_clock::now();
     duration = duration_cast<milliseconds>(end - start);
@@ -235,10 +232,10 @@ int main() {
 
 
     //Set:
+    
+    start = high_resolution_clock::now();
     auto itSet = setCode.begin(); //using a iterator to find the right position.
     advance(itSet, SZ_CODES/2);
-
-    start = high_resolution_clock::now();
 
     setCode.erase(itSet);
 
