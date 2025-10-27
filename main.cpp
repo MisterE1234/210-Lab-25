@@ -30,7 +30,8 @@ int main() {
     list<string> listCode;
     set<string> setCode;
     
-    cout << right << setw(8) << "Operation" << setw(8) << "Vector" << "List" << "Set" << endl;
+    cout << right << setw(8) << "Operation" << setw(8) 
+    << "Vector" << setw(8) << "List" << setw(8) << "Set" << endl;
     //Opening the codes for the race:
     ifstream iFile("codes.txt");
 
@@ -91,7 +92,9 @@ int main() {
     iFile.close();
 
 
-    cout <<  right << setw(8) << durVect << durList << durSet << endl;
+    //Displaying the times for reading:
+    cout <<  right << setw(8) << "Reading:" << setw(8) << 
+    durVect << setw(8) << durList << setw(8) << durSet << endl;
 
 
     
@@ -139,7 +142,8 @@ int main() {
 
     //Displaying the times for sorting:
 
-    cout << right << setw(8) << durVect << durList << durSet << endl;
+    cout << right << setw(8) << "Sorting:" << setw(8) <<
+    durVect << setw(8) << durList << setw(8) << durSet << endl;
 
 
 
@@ -195,7 +199,8 @@ int main() {
 
 
     //Displaying the values of the inserting:
-    cout << right << setw(8) << durVect << durList << durSet << endl;
+    cout << right << setw(8) << "Insert:" << setw(8) <<
+    durVect << setw(8) << durList << setw(8) << durSet << endl;
 
 
 
@@ -240,7 +245,8 @@ int main() {
 
 
     //Displaying the times for the Deleting:
-    cout << right << setw(8) << durVect << durList << durSet << endl;
+    cout << right << setw(8) << "Delete:" << setw(8) << durVect 
+    << setw(8) << durList << setw(8) << durSet << endl;
 
 
     //Clearing all the operations:
