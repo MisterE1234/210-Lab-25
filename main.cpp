@@ -230,7 +230,7 @@ int main() {
 
 
     //Set:
-    auto itSet = setCode.begin();
+    auto itSet = setCode.begin(); //using a iterator to find the right position.
     advance(itSet, SZ_CODES/2);
 
     start = high_resolution_clock::now();
